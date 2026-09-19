@@ -1,0 +1,59 @@
+[versions]
+agp = "8.8.0"
+androidxJunit = "1.2.1"
+composeBom = "2024.09.00"
+coreKtxVersion = "1.13.1"
+# ⬇️ DOWNGRADED: Set to 33.3.0 to keep the base standard libraries aligned with Kotlin 2.0.21
+firebaseBom = "33.3.0"
+hilt = "2.51.1"
+hiltNavigationCompose = "1.4.0"
+junit = "4.13.2"
+# ⬇️ DOWNGRADED: Set to 1.8.1 to completely resolve the binary metadata 2.2.0 expected 2.0.0 mismatch
+kotlinxCoroutines = "1.8.1"
+lifecycleRuntimeKtxVersion = "2.8.4"
+lifecycleViewmodelCompose = "2.11.0"
+navigationCompose = "2.10.1"
+activityCompose = "1.13.0"
+kotlin = "2.0.21"
+ksp = "2.0.21-1.0.26"
+googleServices = "4.4.2"
+
+
+[libraries]
+androidx-core-ktx-v1131 = { module = "androidx.core:core-ktx", version.ref = "coreKtxVersion" }
+androidx-lifecycle-runtime-ktx-v284 = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtxVersion" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
+
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-play-services = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "kotlinxCoroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-firestore = { module = "com.google.firebase:firebase-firestore" }
+firebase-auth = { module = "com.google.firebase:firebase-auth" }
+
+google-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+google-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit-v121 = { module = "androidx.test.ext:junit", version.ref = "androidxJunit" }
+ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+googleServices = { id = "com.google.gms.google-services", version.ref = "googleServices" }

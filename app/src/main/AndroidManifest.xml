@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://android.com">
+    <!-- 📁 Inside AndroidManifest.xml (Above the <application> tag) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+
+    <application
+        android:name="com.example.habittracking.HabitTrackerApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HabitTracking"
+        tools:node="merge">
+
+        <!-- ✅ FIXED: Using direct namespace paths with explicit injection rules -->
+        <activity
+            android:name="com.example.habittracking.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.HabitTracking"
+            android:windowSoftInputMode="adjustResize"
+            tools:node="replace">
+
+            <intent-filter tools:node="replace">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <!-- 📁 Inside AndroidManifest.xml (Within your <application> tag) -->
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+
+            <!-- ✅ FIXED: Changed from 'WorkInitializer' to 'WorkManagerInitializer' -->
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+
+
+
+    </application>
+
+</manifest>
